@@ -1,15 +1,15 @@
 {
-  "name": "dat.gui",
-  "version": "0.7.2",
-  "description": "A lightweight graphical user interface for changing variables in JavaScript.",
-  "main": "build/dat.gui.js",
-  "module": "build/dat.gui.module.js",
+  "name": "dat.guixr",
+  "version": "0.1.0",
+  "description": "A lightweight graphical user interface for changing JavaScript variables in 2D and 3D platforms.",
+  "main": "build/dat.guixr.js",
+  "module": "build/dat.guixr.module.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "dev": "concurrently --names \"ROLLUP,HTTP\" -c \"bgBlue.bold,bgGreen.bold\" \"rollup -c -w -m inline\" \"serve --port 8080\"",
-    "build": "rollup -c && rollup -c rollup.config.min.js",
+    "dev": "concurrently --names \"ROLLUP,HTTP\" -c \"bgBlue.bold,bgGreen.bold\" \"rollup -c -w -m inline\" \"serve --port 8080\" \"browserify build/dat.guixr.js > build/bundle.js\"",
+    "build": "rollup -c && rollup -c rollup.config.min.js && browserify build/dat.gui.min.js > build/bundle.js",
     "build-docs": "jsdoc2md -f src/dat/gui/GUI.js src/dat/controllers/Controller.js src/dat/controllers/NumberController.js | replace-between --target API.md --token API",
     "lint": "eslint src",
     "preversion": "npm run lint",
@@ -18,18 +18,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dataarts/dat.gui.git"
+    "url": "git+https://github.com/dataarts/dat.guixr.git"
   },
-  "author": "Data Arts Team, Google",
+  "author": "Joshua Wang",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/dataarts/dat.gui/issues"
+    "url": "https://github.com/dataarts/dat.guixr/issues"
   },
-  "homepage": "https://github.com/dataarts/dat.gui#readme",
+  "homepage": "https://github.com/dataarts/dat.guixr#readme",
+  "dependencies": {
+    "parse-bmfont-ascii": "^1.0.6",
+    "three-bmfont-text": "^2.2.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
+    "browserify": "^16.2.3",
     "concurrently": "^3.5.1",
     "eslint": "^3.5.0",
     "eslint-config-airbnb-base": "^7.1.0",
@@ -44,6 +49,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-sass": "^0.6.1",
     "rollup-plugin-uglify": "^2.0.1",
+    "rollupify": "^0.5.0",
     "serve": "^6.5.8"
   },
   "eslintConfig": {
@@ -70,5 +76,10 @@
       "no-bitwise": 0,
       "no-plusplus": 0
     }
+  },
+  "browserify": {
+    "transform": [
+      "rollupify"
+    ]
   }
 }

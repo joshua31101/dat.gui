@@ -21,17 +21,17 @@ import sass from 'rollup-plugin-sass';
 const banner = fs.readFileSync(path.join(__dirname, 'licenseBanner.txt'));
 
 export default {
-  input: 'src/dat/index.js',
+  input: 'src/index.js',
   output: [{
     // TODO: Remove default exports, and this line, in v0.8.0.
     exports: 'named',
-    file: './build/dat.gui.js',
+    file: './build/dat.guixr.js',
     format: 'umd',
     name: 'dat',
     sourcemap: true,
     banner: banner
   }, {
-    file: './build/dat.gui.module.js',
+    file: './build/dat.guixr.module.js',
     format: 'es',
     sourcemap: true,
     banner: banner
@@ -43,7 +43,7 @@ export default {
     resolve(),
     sass({
       insert: true,
-      output: 'build/dat.gui.css',
+      output: 'build/dat.guixr.css',
       options: {outputStyle: 'compressed'}
     }),
     babel({

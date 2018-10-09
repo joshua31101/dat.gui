@@ -11,22 +11,23 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 
-import Color from './color/Color';
-import math from './color/math';
-import interpret from './color/interpret';
+import Color from './dat/color/Color';
+import math from './dat/color/math';
+import interpret from './dat/color/interpret';
 
-import Controller from './controllers/Controller';
-import BooleanController from './controllers/BooleanController';
-import OptionController from './controllers/OptionController';
-import StringController from './controllers/StringController';
-import NumberController from './controllers/NumberController';
-import NumberControllerBox from './controllers/NumberControllerBox';
-import NumberControllerSlider from './controllers/NumberControllerSlider';
-import FunctionController from './controllers/FunctionController';
-import ColorController from './controllers/ColorController';
+import Controller from './dat/controllers/Controller';
+import BooleanController from './dat/controllers/BooleanController';
+import OptionController from './dat/controllers/OptionController';
+import StringController from './dat/controllers/StringController';
+import NumberController from './dat/controllers/NumberController';
+import NumberControllerBox from './dat/controllers/NumberControllerBox';
+import NumberControllerSlider from './dat/controllers/NumberControllerSlider';
+import FunctionController from './dat/controllers/FunctionController';
+import ColorController from './dat/controllers/ColorController';
+import GUIVR from './datguivr/index';
 
-import domImport from './dom/dom';
-import GUIImport from './gui/GUI';
+import domImport from './dat/dom/dom';
+import GUIImport from './dat/gui/GUI';
 
 export const color = {
   Color: Color,
@@ -57,5 +58,6 @@ export default {
   controllers,
   dom,
   gui,
-  GUI
+  GUI,
+  GUIVR
 };
